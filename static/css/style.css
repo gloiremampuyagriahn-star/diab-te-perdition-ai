@@ -1,0 +1,278 @@
+/* =========================================================
+   Base styles
+   ========================================================= */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f4f8;
+  color: #2d3748;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================================================
+   Header & navigation
+   ========================================================= */
+header {
+  background: linear-gradient(135deg, #3182ce, #2b6cb0);
+  color: #fff;
+  padding: 1.5rem 2rem;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2rem;
+  margin-top: 0.75rem;
+}
+
+.subtitle {
+  margin-top: 0.4rem;
+  opacity: 0.85;
+}
+
+nav {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+nav a:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* =========================================================
+   Main content
+   ========================================================= */
+main {
+  flex: 1;
+  max-width: 860px;
+  width: 100%;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* =========================================================
+   Prediction form
+   ========================================================= */
+.prediction-form {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-group label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #4a5568;
+}
+
+.form-group input {
+  border: 1px solid #cbd5e0;
+  border-radius: 8px;
+  padding: 0.6rem 0.8rem;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #3182ce;
+  box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.2);
+}
+
+.btn-predict {
+  display: block;
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 0.8rem;
+  background-color: #3182ce;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-predict:hover {
+  background-color: #2b6cb0;
+}
+
+/* =========================================================
+   Result card
+   ========================================================= */
+.result-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  padding: 2.5rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  border-top: 6px solid transparent;
+}
+
+.result-card.diabetic  { border-color: #e53e3e; }
+.result-card.healthy   { border-color: #38a169; }
+
+.result-icon { font-size: 3.5rem; }
+
+.result-label {
+  font-size: 1.75rem;
+  margin-top: 0.5rem;
+}
+
+.result-card.diabetic  .result-label { color: #e53e3e; }
+.result-card.healthy   .result-label { color: #38a169; }
+
+.result-prob {
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+  color: #718096;
+}
+
+.result-advice {
+  margin-top: 1rem;
+  color: #4a5568;
+  font-size: 0.95rem;
+}
+
+.btn-back {
+  display: inline-block;
+  padding: 0.65rem 1.4rem;
+  background: #3182ce;
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.btn-back:hover { background: #2b6cb0; }
+
+/* =========================================================
+   Alert
+   ========================================================= */
+.alert {
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.alert-error {
+  background: #fff5f5;
+  border: 1px solid #fc8181;
+  color: #c53030;
+}
+
+/* =========================================================
+   About page
+   ========================================================= */
+.about-section {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.about-section h2 {
+  font-size: 1.4rem;
+  color: #2b6cb0;
+  margin-bottom: 0.75rem;
+}
+
+.about-section h3 {
+  font-size: 1.1rem;
+  margin-top: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #4a5568;
+}
+
+.about-section ul {
+  padding-left: 1.5rem;
+  line-height: 1.8;
+}
+
+.about-section code {
+  background: #ebf8ff;
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  color: #2b6cb0;
+}
+
+/* =========================================================
+   Feature importance table
+   ========================================================= */
+.importance-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.5rem;
+}
+
+.importance-table th,
+.importance-table td {
+  padding: 0.6rem 0.8rem;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.importance-table th {
+  background: #ebf8ff;
+  font-weight: 700;
+  color: #2b6cb0;
+}
+
+.importance-bar-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.importance-bar {
+  height: 14px;
+  background: #3182ce;
+  border-radius: 4px;
+  min-width: 4px;
+}
+
+/* =========================================================
+   Footer
+   ========================================================= */
+footer {
+  background: #2d3748;
+  color: #a0aec0;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.85rem;
+}
