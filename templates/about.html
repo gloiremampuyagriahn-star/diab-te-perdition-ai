@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>À propos – Prédiction du Diabète</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">Accueil</a>
+      <a href="/about">À propos</a>
+    </nav>
+    <h1>À propos du projet</h1>
+  </header>
+
+  <main>
+    <section class="about-section">
+      <h2>Méthodologie</h2>
+      <p>
+        Cette application prédit le risque de diabète à partir des données cliniques
+        d'un patient en utilisant un <strong>classificateur Random Forest</strong>
+        entraîné sur le jeu de données
+        <em>Pima Indians Diabetes</em>.
+      </p>
+
+      <h3>Données d'entrée</h3>
+      <ul>
+        <li><strong>Grossesses</strong> — Nombre de grossesses</li>
+        <li><strong>Glucose</strong> — Concentration de glucose plasmatique (mg/dL)</li>
+        <li><strong>Pression artérielle</strong> — Pression diastolique (mm Hg)</li>
+        <li><strong>Épaisseur de la peau</strong> — Pli cutané tricipital (mm)</li>
+        <li><strong>Insuline</strong> — Insuline sérique à 2h (mu U/ml)</li>
+        <li><strong>IMC</strong> — Indice de masse corporelle (kg/m²)</li>
+        <li><strong>Pédigrée diabétique</strong> — Hérédité génétique</li>
+        <li><strong>Âge</strong> — Âge en années</li>
+      </ul>
+
+      <h3>Architecture orientée objet</h3>
+      <ul>
+        <li>
+          <code>Patient</code> — Modèle de domaine représentant les données cliniques
+          d'un patient avec validation des plages de valeurs.
+        </li>
+        <li>
+          <code>DiabetesPredictor</code> — Encapsule l'entraînement, l'évaluation,
+          la persistance et l'utilisation du modèle Random Forest.
+        </li>
+        <li>
+          <code>DiabetesApp</code> — Classe d'application Flask orchestrant les routes
+          et l'interaction entre les couches.
+        </li>
+      </ul>
+    </section>
+
+    {% if importances %}
+    <section class="about-section">
+      <h2>Importance des caractéristiques</h2>
+      <table class="importance-table">
+        <thead>
+          <tr><th>Caractéristique</th><th>Importance</th></tr>
+        </thead>
+        <tbody>
+          {% for feature, score in importances.items() | sort(attribute='1', reverse=True) %}
+          <tr>
+            <td>{{ feature }}</td>
+            <td>
+              <div class="importance-bar-container">
+                <div class="importance-bar" style="width: {{ (score * 100)|round(1) }}%"></div>
+                <span>{{ (score * 100)|round(2) }}%</span>
+              </div>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </section>
+    {% endif %}
+  </main>
+
+  <footer>
+    <p>Projet de prédiction du diabète — Programmation Orientée Objet</p>
+  </footer>
+</body>
+</html>
