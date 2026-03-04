@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diabetes AI - Prédiction</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-container">
+        <h2 class="nav-brand">
+          <i class="fas fa-heartbeat brand-icon"></i>
+          <span>Diabetes AI</span>
+        </h2>
+        <div class="nav-menu">
+          <a href="dashboard.html" class="nav-link active">
+            <i class="fas fa-chart-line nav-icon"></i>
+            <span>Prédiction</span>
+          </a>
+          <a href="statistics.html" class="nav-link">
+            <i class="fas fa-chart-bar nav-icon"></i>
+            <span>Statistiques</span>
+          </a>
+          <a href="#" class="nav-link logout" onclick="logoutUser(); return false;">
+            <i class="fas fa-sign-out-alt nav-icon"></i>
+            <span>Déconnexion</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="main-content">
+      <div class="container dashboard-container">
+        <div class="header-section">
+          <div class="header-content">
+            <h1 class="page-title">
+              <i class="fas fa-microscope title-icon"></i>
+              Prédiction du Risque de Diabète
+            </h1>
+            <p id="welcome-text" class="subtitle"></p>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <div class="section-header">
+            <h3 class="section-title">
+              <i class="fas fa-notes-medical section-icon"></i>
+              Paramètres Médicaux
+            </h3>
+            <p class="section-subtitle">Veuillez remplir tous les champs avec les valeurs du patient</p>
+          </div>
+          
+          <div class="grid">
+            <div class="input-group">
+              <label>
+                <i class="fas fa-baby label-icon"></i>
+                <span>Antécédent du diabète gestationnel</span>
+              </label>
+              <input type="number" id="f1" placeholder="Ex: 2" min="0" />
+            </div>
+            <div class="input-group">
+              <label>
+                <i class="fas fa-tint label-icon"></i>
+                <span>Glucose (mg/dL)</span>
+              </label>
+              <input type="number" id="f2" placeholder="Ex: 120" min="0" />
+            </div>
+            <div class="input-group">
+              <label>
+                <i class="fas fa-heartbeat label-icon"></i>
+                <span>Pression artérielle (mmHg)</span>
+              </label>
+              <input type="number" id="f3" placeholder="Ex: 80" min="0" />
+            </div>
+            <div class="input-group">
+              <label>
+                <i class="fas fa-ruler label-icon"></i>
+                <span>Épaisseur cutanée (mm)</span>
+              </label>
+              <input type="number" id="f4" placeholder="Ex: 20" min="0" />
+            </div>
+            <div class="input-group">
+              <label>
+                <i class="fas fa-syringe label-icon"></i>
+                <span>Insuline (μU/mL)</span>
+              </label>
+              <input type="number" id="f5" placeholder="Ex: 80" min="0" />
+            </div>
+            <div class="input-group">
+              <label>
+                <i class="fas fa-weight label-icon"></i>
+                <span>IMC (kg/m²)</span>
+              </label>
+              <input type="number" id="f6" placeholder="Ex: 25.5" step="0.1" min="0" />
+            </div>
+            <div class="input-group">
+              <label>
+                <i class="fas fa-dna label-icon"></i>
+                <span>Fonction diabète héréditaire</span>
+              </label>
+              <input type="number" id="f7" placeholder="Ex: 0.5" step="0.01" min="0" max="2" />
+            </div>
+            <div class="input-group">
+              <label>
+                <i class="fas fa-birthday-cake label-icon"></i>
+                <span>Âge (années)</span>
+              </label>
+              <input type="number" id="f8" placeholder="Ex: 35" min="0" max="120" />
+            </div>
+          </div>
+
+          <div class="action-buttons">
+            <button class="btn-primary" onclick="predictDiabetes()">
+              <i class="fas fa-search btn-icon"></i>
+              <span>Analyser</span>
+            </button>
+            <button class="btn-secondary" onclick="clearForm()">
+              <i class="fas fa-sync-alt btn-icon"></i>
+              <span>Réinitialiser</span>
+            </button>
+          </div>
+
+          <p id="predict-message" class="message"></p>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diabetes AI - Résultat</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-container">
+        <h2 class="nav-brand">
+          <i class="fas fa-heartbeat"></i>
+          Diabetes AI
+        </h2>
+        <div class="nav-menu">
+          <a href="dashboard.html" class="nav-link">
+            <i class="fas fa-chart-line nav-icon"></i>
+            <span>Prédiction</span>
+          </a>
+          <a href="statistics.html" class="nav-link">
+            <i class="fas fa-chart-bar nav-icon"></i>
+            <span>Statistiques</span>
+          </a>
+          <a href="#" class="nav-link" onclick="logoutUser(); return false;">
+            <i class="fas fa-sign-out-alt nav-icon"></i>
+            <span>Déconnexion</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="main-content">
+      <div class="container">
+        <div class="result-header">
+          <h1>Résultat de l'Analyse</h1>
+          <p class="subtitle">Analyse basée sur vos paramètres médicaux</p>
+        </div>
+
+        <div id="result-card" class="result-card">
+          <!-- Contenu dynamique -->
+        </div>
+
+        <div class="result-details">
+          <h3>
+            <i class="fas fa-clipboard-list"></i>
+            Paramètres analysés
+          </h3>
+          <div id="parameters-grid" class="parameters-grid">
+            <!-- Contenu dynamique -->
+          </div>
+        </div>
+
+        <div class="result-actions">
+          <button class="btn-primary" onclick="window.location.href='dashboard.html'">
+            <i class="fas fa-sync-alt"></i>
+            Nouvelle analyse
+          </button>
+          <button class="btn-secondary" onclick="window.location.href='statistics.html'">
+            <i class="fas fa-chart-line"></i>
+            Voir statistiques
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+      displayResult();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diabetes AI - Connexion</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="login-page">
+    <div class="login-container">
+      <div class="login-background">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+      </div>
+      
+      <div class="login-box">
+        <div class="login-header">
+          <div class="logo-circle">
+            <i class="fas fa-heartbeat logo-icon"></i>
+          </div>
+          <h1 class="login-title">Diabetes AI</h1>
+          <p class="login-subtitle">Système de Prédiction Intelligente</p>
+        </div>
+
+        <form class="login-form" onsubmit="loginUser(); return false;">
+          <div class="input-wrapper">
+            <i class="fas fa-user input-icon"></i>
+            <input 
+              type="text" 
+              id="username" 
+              placeholder="Nom d'utilisateur" 
+              value="admin"
+              class="login-input"
+              required
+            />
+          </div>
+
+          <div class="input-wrapper">
+            <i class="fas fa-lock input-icon"></i>
+            <input 
+              type="password" 
+              id="password" 
+              placeholder="Mot de passe" 
+              value="admin123"
+              class="login-input"
+              required
+            />
+          </div>
+
+          <button type="submit" class="login-button">
+            <span>Se connecter</span>
+            <i class="fas fa-arrow-right button-icon"></i>
+          </button>
+        </form>
+
+        <p id="auth-message" class="auth-message"></p>
+
+        <div class="login-footer">
+          <p class="footer-text">
+            <i class="fas fa-info-circle footer-icon"></i>
+            Identifiants par défaut: admin / admin123
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
