@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Résultat de la Prédiction</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">Accueil</a>
+      <a href="/about">À propos</a>
+    </nav>
+    <h1>🩺 Résultat de la Prédiction</h1>
+  </header>
+
+  <main>
+    {% if error %}
+      <div class="alert alert-error">
+        <strong>Erreur :</strong> {{ error }}
+      </div>
+    {% elif result %}
+      <div class="result-card {{ 'diabetic' if result.prediction == 1 else 'healthy' }}">
+        <div class="result-icon">
+          {{ '⚠️' if result.prediction == 1 else '✅' }}
+        </div>
+        <h2 class="result-label">{{ result.label }}</h2>
+        <p class="result-prob">
+          Probabilité : <strong>{{ result.probability }}%</strong>
+        </p>
+        {% if result.prediction == 1 %}
+          <p class="result-advice">
+            Le modèle indique un risque élevé de diabète.
+            Veuillez consulter un médecin pour un diagnostic approfondi.
+          </p>
+        {% else %}
+          <p class="result-advice">
+            Le modèle n'indique pas de diabète.
+            Continuez à maintenir un mode de vie sain.
+          </p>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <a href="/" class="btn-back">← Nouvelle prédiction</a>
+  </main>
+
+  <footer>
+    <p>Projet de prédiction du diabète — Programmation Orientée Objet</p>
+  </footer>
+</body>
+</html>
